@@ -13,7 +13,7 @@ project:
         - version_id: 04t4w000001E96BAAS # NPSP Recurring Donations 3.25.0.2
         - version_id: 04t4w000000AojvAAC # NPSP Relationships 3.15.0.2
         - version_id: 04t4w000000YjKXAA0 # NPSP Affiliations 3.13.0.2
-        # TODO: Add our dependency github url here
+        - github: https://github.com/Nimba-Solutions/NPSP-Dependencies-Record-Types
         - version_id: 04t5d000000oxalAAA # NPSP Base Package 3.266.0.7
         - version_id: 04tHs00000120gqIAA # Volunteers For Salesforce 3.124.0.2
     package:
@@ -41,18 +41,3 @@ tasks:
     run_tests:
         options:
             required_org_code_coverage_percent: 75
-    
-    deploy_opp_record_types:
-        description: Deploys Opportunity Record Types.
-        class_path: cumulusci.tasks.salesforce.Deploy
-        ui_options:
-            name: Deploy Opportunity Record Types
-        options:
-            path: unpackaged/config/opportunity_record_types
-
-
-flows:
-    dependencies:
-        steps:
-            0:
-                task: deploy_opp_record_types
