@@ -24,6 +24,9 @@
   "objectSettings": {
     "account": {
       "defaultRecordType": "default"
+    },
+    "opportunity": {
+      "defaultRecordType": "default"
     }
   }
 }
