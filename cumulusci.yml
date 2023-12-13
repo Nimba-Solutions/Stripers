@@ -1,6 +1,21 @@
 minimum_cumulusci_version: '3.78.0'
 project:
     name: Stripers
+    dependencies:
+        - github: https://github.com/SFDO-Community/Summit-Events-App
+        - version_id: 04t5Y000001Mjx5QAC # Nebula Logger v4.11.12
+        - version_id: 04t8b000001BTgsAAG # Flow Actions Base Pack v3.15
+        - version_id: 04t5G000004XZhZQAW # Flow Screens Base Pack v3.2.4
+        - version_id: 04tRN00000002HxYAI # Stripe Universal Connector 1.10.0.1
+        - version_id: 04t4x0000003MzaAAE # Stripe Universal Connector Extension 2022-11-15 1.10.0.1
+        - version_id: 04t4w000000tPkFAAU # NPSP Contacts & Organizations 3.22.0.2
+        - version_id: 04t4w000001E96GAAS # NPSP Households 3.18.0.2
+        - version_id: 04t4w000001E96BAAS # NPSP Recurring Donations 3.25.0.2
+        - version_id: 04t4w000000AojvAAC # NPSP Relationships 3.15.0.2
+        - version_id: 04t4w000000YjKXAA0 # NPSP Affiliations 3.13.0.2
+        # TODO: Add our dependency github url here
+        - version_id: 04t5d000000oxalAAA # NPSP Base Package 3.266.0.7
+        - version_id: 04tHs00000120gqIAA # Volunteers For Salesforce 3.124.0.2
     package:
         name: Stripers
         api_version: '59.0'
@@ -26,3 +41,18 @@ tasks:
     run_tests:
         options:
             required_org_code_coverage_percent: 75
+    
+    deploy_opp_record_types:
+        description: Deploys Opportunity Record Types.
+        class_path: cumulusci.tasks.salesforce.Deploy
+        ui_options:
+            name: Deploy Opportunity Record Types
+        options:
+            path: unpackaged/config/opportunity_record_types
+
+
+flows:
+    dependencies:
+        steps:
+            0:
+                task: deploy_opp_record_types
