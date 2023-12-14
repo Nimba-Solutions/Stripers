@@ -19,4 +19,4 @@ To release this project as a 2nd Generation Unlocked Package:
 2. Run `cci flow run release_unlocked_beta --org dev --debug` to deploy this project.
 3. Run `cci org browser dev` to open the org in your browser.
 4. Thoroughly test all functionality.
-5. Run `cci flow run release_unlocked_production --org release`
+5. Run `cci flow run release_unlocked_production --org dev`
