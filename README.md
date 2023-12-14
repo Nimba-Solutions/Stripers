@@ -15,7 +15,7 @@ To work on this project in a scratch org:
 
 To release this project as a 2nd Generation Unlocked Package:
 
-1. Run `cci flow run dependencies --org beta --debug` to prepare a "beta packaging scratch org"
+1. Run `cci flow run dependencies --org dev --debug` to prepare a "beta packaging scratch org"
 2. Run `cci flow run release_unlocked_beta --org dev --debug` to deploy this project.
 3. Run `cci org browser dev` to open the org in your browser.
 4. Thoroughly test all functionality.
